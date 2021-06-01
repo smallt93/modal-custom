@@ -4,7 +4,7 @@ module.exports = {
   entry: path.resolve(__dirname, "src/script.js"),
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js",
+    filename: "modal-custom.min.js",
     library: "LineModal",
     libraryTarget: "umd",
   },

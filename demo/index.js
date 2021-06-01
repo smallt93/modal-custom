@@ -1,12 +1,10 @@
-import Modal from '../src/script.js';
+const { Modal } = LineModal;
 
 // ALERT
 document.getElementById('alert-btn').addEventListener('click', () => {
   const modal = new Modal();
 
-  modal.alert({
-    msg: 'Hello world',
-  });
+  modal.alert('Hello world');
 })
 
 // CONFIRM
@@ -31,7 +29,6 @@ document.getElementById('prompt-btn').addEventListener('click', () => {
   
   modal.prompt({
     msg: 'Where are you?',
-    footerOrder: 1,
     onOk: (val) => {
       console.log(val);
     },
