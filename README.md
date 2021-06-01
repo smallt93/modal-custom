@@ -1,4 +1,4 @@
-# modal-custom.min.js
+# Moal custom
 
 > This library will be released soon as 1.0 with a whole new codebase! Stay tuned!
 
@@ -84,6 +84,36 @@ Just include the script `dist/modal-custom.min.js` into your project and put the
         onCancel: () => {
             console.log('Im from nowhere')
         }
+    });
+
+```
+
+### Styling
+
+You can use `styles` to custom modal wrapper
+
+``` javascript
+
+    const { Modal } = LineModal;
+
+    modal.alert({
+        styles: `
+            margin: 5px;
+            padding: 8px;
+            display: inline-block;
+        `,
+    });
+
+```
+
+Or use `class` to set your style by class
+
+``` javascript
+
+    const { Modal } = LineModal;
+
+    modal.alert({
+        class: 'my-modal-wrapper',
     });
 
 ```

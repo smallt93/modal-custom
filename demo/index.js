@@ -22,13 +22,13 @@ document.getElementById('confirm-btn').addEventListener('click', () => {
   });
 })
 
-
 // PROMPT
 document.getElementById('prompt-btn').addEventListener('click', () => {
   const modal = new Modal();
   
   modal.prompt({
     msg: 'Where are you?',
+    textPlaceholder: 'Can you say where are you ?',
     onOk: (val) => {
       console.log(val);
     },

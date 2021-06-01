@@ -116,8 +116,14 @@ export class Modal {
       this.prompInput = document.createElement('input');
       this.prompInput.setAttribute('type', 'text');
       this.prompInput.setAttribute('class', 'modal-prompt-input');
-      this.modal.appendChild(this.prompInput);
 
+      // set placeholder input
+      if (this.options.textPlaceholder) {
+        this.prompInput.setAttribute('placeholder', this.options.textPlaceholder);
+      }
+      
+      this.modal.appendChild(this.prompInput);
+      
       // focus input
       this.prompInput.focus();
     }
