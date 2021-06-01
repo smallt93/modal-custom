@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap');
+
+@keyframes move {
+  from {top: -300px;}
+  to {top: 0px;}
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 14px;
+}
+
+p {
+  margin: 8px 0px;
+}
+
+button {
+  width: 100px;
+  height: 38px;
+  margin-left: 8px;
+  cursor: pointer;
+  font-family: 'Noto Sans JP', sans-serif;
+  color: #07b53b;
+  background-color: #fff;
+  border: 1px solid #00000026;
+  border-radius: 5px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.fixed {
+  min-width: 400px;
+  z-index: 2;
+  background-color: #f7f7f7;
+  border: 1px solid #00000026;
+  padding: 10px 16px 16px;
+  border-radius: 5px;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  margin-right: -50%;
+  transform: translate(-50%, 0%);
+  box-shadow: 0px 0px 4px 0px #00000026;
+  animation: move 350ms ease;
+}
+
+#blocked {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+
+.btn {
+  cursor: pointer;
+  min-width: 70px;
+  border-radius: 5px;
+  line-height: 32px;
+  transition: all 300ms ease;
+}
+
+.btn:hover {
+  opacity: .9;
+}
+
+.btn-actions {
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-order-0 {
+  order: 0;
+}
+
+.btn-order-1 {
+  order: 1;
+}
+
+.btn-submit {
+  margin-left: 8px;
+  color: #fff;
+  border: 1px solid transparent;
+  background-color: #07b53b;
+}
+
+.prompt-input {
+  outline: none;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0px 8px;
+  height: 36px;
+  border: 2px solid #98c2f7;
+  border-radius: 5px;
+}
