@@ -181,11 +181,9 @@ export default class Modal {
 
     if (this.options.footer) {
       this.actionsEl.innerHTML += this.options.footer();
-    } else {
-  
+    } else {  
       this.createOkBtn();
       this.createCancelBtn();
-  
     }
 
     this.modal.appendChild(this.actionsEl);

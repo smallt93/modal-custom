@@ -19,24 +19,28 @@ Just include the script `dist/modal-custom.min.js` into your project and put the
 
 ``` html
 <html>
-    <body>
-        <script src="../dist/modal-custom.min.js"></script>
-    </body>
+  <body>
+    <script src="../dist/modal-custom.min.js"></script>
+  </body>
 </html>
 
 ```
 
+## How to use
 
-## Components
+``` javascript
+
+  const { Modal } = LineModal;
+
+  const modal = new Modal();
+
+```
 
 ### Alert with string
 
 ``` javascript
 
-    const { Modal } = LineModal;
-
-    modal.alert('Hello world');
-
+  modal.alert('Hello world');
 
 ```
 
@@ -44,11 +48,9 @@ Just include the script `dist/modal-custom.min.js` into your project and put the
 
 ``` javascript
 
-    const { Modal } = LineModal;
-
-    modal.alert({
-        msg: 'Hello world'
-    });
+  modal.alert({
+    msg: 'Hello world'
+  });
 
 ```
 
@@ -56,17 +58,15 @@ Just include the script `dist/modal-custom.min.js` into your project and put the
 
 ``` javascript
 
-    const { Modal } = LineModal;
-
-    modal.alert({
-        msg: 'Are you sure?',
-        onOk: () => {
-            console.log('Sure')
-        },
-        onCancel: () => {
-            console.log('Not yet')
-        }
-    });
+  modal.confirm({
+    msg: 'Are you sure?',
+    onOk: () => {
+      console.log('Sure')
+    },
+    onCancel: () => {
+      console.log('Not yet')
+    }
+  });
 
 ```
 
@@ -74,17 +74,15 @@ Just include the script `dist/modal-custom.min.js` into your project and put the
 
 ``` javascript
 
-    const { Modal } = LineModal;
-
-    modal.alert({
-        msg: 'Where are you?',
-        onOk: (val) => {
-            console.log(val)
-        },
-        onCancel: () => {
-            console.log('Im from nowhere')
-        }
-    });
+  modal.prompt({
+    msg: 'Where are you?',
+    onOk: (val) => {
+      console.log(val)
+    },
+    onCancel: () => {
+      console.log('Im from nowhere')
+    }
+  });
 
 ```
 
@@ -94,15 +92,13 @@ You can use `styles` to custom modal wrapper
 
 ``` javascript
 
-    const { Modal } = LineModal;
-
-    modal.alert({
-        styles: `
-            margin: 5px;
-            padding: 8px;
-            display: inline-block;
-        `,
-    });
+  modal.alert({
+    styles: `
+      margin: 5px;
+      padding: 8px;
+      display: inline-block;
+    `,
+  });
 
 ```
 
@@ -110,17 +106,17 @@ Or use `class` to set your style by class
 
 ``` javascript
 
-    const { Modal } = LineModal;
-
-    modal.alert({
-        class: 'my-modal-wrapper',
-    });
+  modal.alert({
+    class: 'my-modal-wrapper',
+  });
 
 ```
 
 ## Config / Option
 
+
 When creating a new Object of an Alert, Prompt, or Confirm, this object has a few options that you can change.
+
 
 key | description | type | mandatory|
 ----|-----------|----|-----|
@@ -130,13 +126,13 @@ styles | Styles of modal wrapper | string | |
 textOk | Text for the submit button | string | Ok |
 textCancel | Text for the cancel button | string | Cancel |
 textPlaceholder | Placeholder text (prompt) | string |  |
-onOk | Fires when a user has accepted | (value: string) => string | - |
+onOk | Fires when a user has submited | (value: string) => string | - |
 onCancel | Fires when a user has canceled | func | - |
-okStyle | Style of submit button | string |  |
-cancelStyle | Style of cancel button | string |  |
+okStyle | Styles of submit button | string |  |
+cancelStyle | Styles of cancel button | string |  |
 buttonType | Modal includes several predefined button styles, can be set to `primary`, `danger`, `success`, `secondary`, `warning` | string | `primary` |
-render | Custom modal content render | func | - |
-footer | Custom footer content render | func | - |
+render | Custom modal content render | () => `node` | - |
+footer | Custom footer content render | () => `node` | - |
 
 ## Questions
 For questions and support feel free to create an issue or write an email to
