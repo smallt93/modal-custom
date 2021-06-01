@@ -10,9 +10,14 @@ const defaultOpt = {
   textOk: '',
   textCancel: '',
   textPlaceholder: '',
+  okStyle: '',
+  cancelStyle: '',
+  buttonType: 'primary',
+  render: null,
+  footer: null,
 }
 
-export class Modal {
+export default class Modal {
   constructor() {
     this.modal = null;
     this.blocked = null;
@@ -104,54 +109,86 @@ export class Modal {
   }
 
   createContent(options) {
-    const { type , msg } = options;
-    const content = document.createElement('p');
-
-    // set message
-    content.textContent = msg;
-    this.modal.appendChild(content);
-
-    // create prompt input
-    if (type === 'prompt') {
-      this.prompInput = document.createElement('input');
-      this.prompInput.setAttribute('type', 'text');
-      this.prompInput.setAttribute('class', 'modal-prompt-input');
-
-      // set placeholder input
-      if (this.options.textPlaceholder) {
-        this.prompInput.setAttribute('placeholder', this.options.textPlaceholder);
+    if (this.options.render) {
+      this.modal.innerHTML += this.options.render();
+    } else {
+      const { type , msg } = options;
+      const content = document.createElement('p');
+  
+      // set message
+      content.textContent = msg;
+      this.modal.appendChild(content);
+  
+      // create prompt input
+      if (type === 'prompt') {
+        this.prompInput = document.createElement('input');
+        this.prompInput.setAttribute('type', 'text');
+        this.prompInput.setAttribute('class', 'modal-prompt-input');
+  
+        // set placeholder input
+        if (this.options.textPlaceholder) {
+          this.prompInput.setAttribute('placeholder', this.options.textPlaceholder);
+        }
+        
+        this.modal.appendChild(this.prompInput);
+        
+        // focus input
+        this.prompInput.focus();
       }
-      
-      this.modal.appendChild(this.prompInput);
-      
-      // focus input
-      this.prompInput.focus();
+    }
+  }
+
+  createOkBtn() {
+    // create ok btn
+    this.btnSubmit = document.createElement('button');
+    this.btnSubmit.setAttribute(
+      'class',
+      `modal-btn modal-btn-${this.options.buttonType} modal-btn-submit-${this.options.buttonType}`
+    );
+    this.btnSubmit.textContent = this.options.textOk || 'Ok';
+
+    // set style for button
+    if (this.options.okStyle) {
+      this.btnSubmit.style.cssText = this.options.okStyle;
+    }
+
+    this.actionsEl.appendChild(this.btnSubmit);
+    // event listener
+    this.onOk();
+  }
+
+  createCancelBtn() {
+    // create cancel btn
+    if (this.options.type !== 'alert') {
+      this.btnCancel = document.createElement('button');
+      this.btnCancel.setAttribute('class', `modal-btn modal-btn-${this.options.buttonType}`);
+      this.btnCancel.textContent = this.options.textCancel || 'Cancel';
+  
+      // set style for button
+      if (this.options.cancelStyle) {
+        this.btnCancel.style.cssText = this.options.cancelStyle;
+      }
+  
+      this.actionsEl.appendChild(this.btnCancel);
+    // event listener
+      this.onCancel();
     }
   }
 
   footer() {
-    const actionEl = document.createElement('div');
-    actionEl.setAttribute('class', 'modal-btn-actions');
+    this.actionsEl = document.createElement('div');
+    this.actionsEl.setAttribute('class', 'modal-btn-actions');
 
-    // create ok btn
-    this.btnSubmit = document.createElement('button');
-    this.btnSubmit.setAttribute('class', 'modal-btn modal-btn-submit');
-    this.btnSubmit.textContent = this.options.textOk || 'Ok';
-    actionEl.appendChild(this.btnSubmit);
-
-    // create cancel btn
-    if (this.options.type !== 'alert') {
-      this.btnCancel = document.createElement('button');
-      this.btnCancel.setAttribute('class', 'modal-btn');
-      this.btnCancel.textContent = this.options.textCancel || 'Cancel';
-      actionEl.appendChild(this.btnCancel);
+    if (this.options.footer) {
+      this.actionsEl.innerHTML += this.options.footer();
+    } else {
+  
+      this.createOkBtn();
+      this.createCancelBtn();
+  
     }
 
-    this.modal.appendChild(actionEl);
-
-    // event listener
-    this.onOk();
-    this.onCancel();
+    this.modal.appendChild(this.actionsEl);
   }
 
   close() {

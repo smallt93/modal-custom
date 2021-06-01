@@ -18,7 +18,7 @@ document.getElementById('confirm-btn').addEventListener('click', () => {
     },
     onCancel: () => {
       console.log('Not yet');
-    }
+    },
   });
 })
 

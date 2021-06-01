@@ -1,4 +1,4 @@
-# Moal custom
+# modal-custom
 
 > This library will be released soon as 1.0 with a whole new codebase! Stay tuned!
 
@@ -124,14 +124,19 @@ When creating a new Object of an Alert, Prompt, or Confirm, this object has a fe
 
 key | description | type | mandatory|
 ----|-----------|----|-----|
-msg | Message | string | true |
-class | Class in html | string | false |
-styles | Styles of modal wrapper | string | false |
-textOk | Text for the submit button | string | false |
-textCancel | Text for the cancel button | string | false |
-textPlaceholder | Placeholder text (prompt) | string | false |
-onOk | Fires when a user has accepted | (value: string) => string | true |
-onCancel | Fires when a user has canceled | func | true |
+msg | Message | string | `"window.location.origin" says` |
+class | Class in html | string |  |
+styles | Styles of modal wrapper | string | |
+textOk | Text for the submit button | string | Ok |
+textCancel | Text for the cancel button | string | Cancel |
+textPlaceholder | Placeholder text (prompt) | string |  |
+onOk | Fires when a user has accepted | (value: string) => string | - |
+onCancel | Fires when a user has canceled | func | - |
+okStyle | Style of submit button | string |  |
+cancelStyle | Style of cancel button | string |  |
+buttonType | Modal includes several predefined button styles, can be set to `primary`, `danger`, `success`, `secondary`, `warning` | string | `primary` |
+render | Custom modal content render | func | - |
+footer | Custom footer content render | func | - |
 
 ## Questions
 For questions and support feel free to create an issue or write an email to
