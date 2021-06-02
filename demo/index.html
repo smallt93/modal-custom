@@ -9,10 +9,11 @@
       body {
         overflow: hidden;
       }
-      button {
+      .demo-btn button {
         color: #07b53b;
         min-width: 150px;
         height: 38px;
+        margin-right: 5px;
         cursor: pointer;
         font-family: 'Noto Sans JP', sans-serif;
         background-color: #fff;
@@ -20,34 +21,38 @@
         border-radius: 5px;
       }
     </style>
+    <link rel="stylesheet" href="../src/style.css" />
   </head>
 
   <body>
     <div class="container">
-      <div style="margin-bottom: 2px;">
+      <div class="demo-btn" style="margin-bottom: 5px;">
         <button data-modal-id="alert-btn">Alert</button>
         <button data-modal-id="confirm-btn">Confirm</button>
         <button data-modal-id="prompt-btn">Prompt</button>
       </div>
 
-      <div>
+      <div class="demo-btn">
         <button data-modal-id="modify-styling">Modify styling</button>
         <button data-modal-id="custom-content">Custom Content</button>
       </div>
       
-      <div style="
-        margin-top: 20px;
-        padding: 8px;
-        border: 1px solid #ddd;
-        width: 600px;
-        height: 100px;
-        position: relative;"
+      <div
+        class="demo-btn" 
+        style="
+          margin-top: 20px;
+          padding: 8px;
+          border: 1px solid #ddd;
+          width: 600px;
+          height: 100px;
+          position: relative;
+        "
       >
         <button data-modal-id="after-element">After Element</button>
       </div>
     </div>
 
-    <script src="../dist/modal-custom.min.js"></script>
+    <!-- <script src="../dist/modal-custom.min.js"></script> -->
     <script type="module" src="index.js"></script>
   </body>
 </html>

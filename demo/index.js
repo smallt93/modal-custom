@@ -1,4 +1,5 @@
-const { Modal } = LineModal;
+import Modal from '../src/script.js';
+// const { Modal } = LineModal;
 
 // ALERT
 document.querySelector('[data-modal-id="alert-btn"]').addEventListener('click', () => {
@@ -12,7 +13,6 @@ document.querySelector('[data-modal-id="confirm-btn"]').addEventListener('click'
   const modal = new Modal();
 
   modal.confirm({
-    isAccess: true, 
     msg: 'Are you sure?',
     onOk: () => {
       console.log('Sure');
@@ -66,9 +66,9 @@ document.querySelector('[data-modal-id="custom-content"]').addEventListener('cli
   modal.prompt({
     render: () => `
       <div>
-        <h1>Login Form</h1>
+        <h2>Login Form</h2>
 
-        <form>
+        <form onsubmit="return false;">
           <div class="form-item">
             <label>User name</label>
             <input type="text" />
@@ -78,6 +78,8 @@ document.querySelector('[data-modal-id="custom-content"]').addEventListener('cli
             <label>Password</label>
             <input type="password" />
           </div>
+
+          <button>Login</button>
         </form>
       </div>
     `,

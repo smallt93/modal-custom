@@ -149,6 +149,7 @@ When creating a new Object of an Alert, Prompt, or Confirm, this object has a fe
 key | description | type | mandatory|
 ----|-----------|----|-----|
 msg | Message | string | `"window.location.origin" says` |
+title | Title of modal | string |  |
 class | Class in html | string |  |
 styles | Styles of modal wrapper | string | |
 textOk | Text for the submit button | string | Ok |
@@ -159,10 +160,10 @@ onCancel | Fires when a user has canceled | func | - |
 okStyle | Styles of submit button | string |  |
 cancelStyle | Styles of cancel button | string |  |
 buttonType | Modal includes several predefined button styles, can be set to `primary`, `danger`, `success`, `secondary`, `warning` | string | `primary` |
-render | Custom modal content render | () => `node` | - |
-footer | Custom footer content render | () => `node` | - |
+render | Custom all render of modal | () => `node` | - |
+content | Custom content render of modal | () => `node` | - |
+footer | Custom footer render of modal | () => `node` | - |
 position | Define postion of modal, can be set to `top-left`, `top-left`, `top-center`, `top-right`, `center-left`, `center`, `center-right`, `bottom-left`, `bottom-center`, `bottom-right`, | string | `top-center` |
-isAccess | Allow the user from accessing the rest of the program's interface | boolean | `false` |
 triggerId | Your trigger element | string |  |
 afterElement | You can set position of DOM after your trigger element, you have to define your trigger element in `triggerId` | boolean | `false` |
 

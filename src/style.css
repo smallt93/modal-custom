@@ -33,55 +33,42 @@ body {
   font-size: 14px;
 }
 
-modal p {
-  margin: 8px 0px;
+modal h1, modal h2, modal h3 {
+  margin: 0;
 }
 
-modal button {
-  width: 100px;
-  height: 38px;
+modal p {
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+modal .modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 16px;
+  border-bottom: 1px solid #ddd;
+}
+
+modal .modal-content {
+  padding: 16px;
+}
+
+modal .modal-close-btn::before {
+  position: relative;
+  font-size: 16px;
+  content: 'x';
+  cursor: pointer;
+}
+modal .modal-btn {
+  min-width: 70px;
+  line-height: 28px;
   margin-left: 8px;
   cursor: pointer;
   font-family: 'Noto Sans JP', sans-serif;
   background-color: #fff;
   border: 1px solid #00000026;
   border-radius: 5px;
-}
-
-modal input {
-  outline: none;
-  box-sizing: border-box;
-  width: 100%;
-  padding: 0px 8px;
-  height: 36px;
-  border: 2px solid #98c2f7;
-  border-radius: 5px;
-}
-
-modal.modal-container {
-  min-width: 400px;
-  z-index: 999;
-  background-color: #f7f7f7;
-  border: 1px solid #00000026;
-  padding: 10px 16px 16px;
-  border-radius: 5px;
-  box-shadow: 0px 0px 4px 0px #00000026;
-}
-
-body .modal-blocked {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 1;
-}
-
-modal .modal-btn {
-  cursor: pointer;
-  min-width: 70px;
-  border-radius: 5px;
-  line-height: 32px;
   transition: all 300ms ease;
 }
 
@@ -89,6 +76,36 @@ modal .modal-btn:hover {
   opacity: .9;
 }
 
+modal .modal-prompt-input {
+  outline: none;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0px 8px;
+  height: 36px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+modal.modal-dialog {
+  min-width: 400px;
+  z-index: 999;
+  background-color: #f7f7f7;
+  border: 1px solid #00000026;
+  border-radius: 5px;
+  box-shadow: 0px 0px 4px 0px #00000026;
+}
+
+body .modal-container.modal-fade {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  background-color: #6767676b;
+}
+
+/* button color */
 modal .modal-btn-primary {
   color: var(--primary-color);
 }
@@ -115,6 +132,7 @@ modal .modal-btn-actions {
   justify-content: flex-end;
 }
 
+/* button order */
 modal .order-0 {
   order: 0;
 }
@@ -123,6 +141,7 @@ modal .order-1 {
   order: 1;
 }
 
+/* button type */
 modal .modal-btn-submit-primary {
   color: #fff;
   border: 1px solid transparent;
@@ -153,7 +172,9 @@ modal .modal-btn-submit-warning {
   background-color: var(--warning-color);
 }
 
+/* modal position */
 modal.modal-top-center {
+  margin-top: 20px;
   position: fixed;
   top: 0;
   left: 50%;
@@ -165,6 +186,7 @@ modal.modal-top-center {
 }
 
 modal.modal-top-left {
+  margin: 20px 0 0 20px;
   position: fixed;
   top: 0;
   left: 0;
@@ -172,6 +194,7 @@ modal.modal-top-left {
 }
 
 modal.modal-top-right {
+  margin: 20px 20px 0 0 ;
   position: fixed;
   top: 0;
   right: 0;
@@ -179,6 +202,7 @@ modal.modal-top-right {
 }
 
 modal.modal-center-left {
+  margin-left: 20px;
   position: fixed;
   top: 50%;
   left: 0;
@@ -197,6 +221,7 @@ modal.modal-center {
 }
 
 modal.modal-center-right {
+  margin-right: 20px;
   position: fixed;
   top: 50%;
   right: 0;
@@ -205,6 +230,7 @@ modal.modal-center-right {
 }
 
 modal.modal-bottom-left {
+  margin: 0 0 20px 20px;
   position: fixed;
   left: 0;
   bottom: 0;
@@ -212,6 +238,7 @@ modal.modal-bottom-left {
 }
 
 modal.modal-bottom-center {
+  margin-bottom: 20px;
   position: fixed;
   left: 50%;
   bottom: 0;
@@ -220,6 +247,7 @@ modal.modal-bottom-center {
 }
 
 modal.modal-bottom-right {
+  margin: 0 20px 20px 0;
   position: fixed;
   right: 0;
   bottom: 0;
