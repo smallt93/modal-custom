@@ -1,21 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-  <link>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modal Custom</title>
+    <style>
+      body {
+        overflow: hidden;
+      }
+      button {
+        color: #07b53b;
+        min-width: 150px;
+        height: 38px;
+        cursor: pointer;
+        font-family: 'Noto Sans JP', sans-serif;
+        background-color: #fff;
+        border: 1px solid #00000026;
+        border-radius: 5px;
+      }
+    </style>
   </head>
 
   <body>
     <div class="container">
-      <button id="alert-btn">Alert</button>
-      <button id="confirm-btn">Confirm</button>
-      <button id="prompt-btn">Prompt</button>
+      <div style="margin-bottom: 2px;">
+        <button data-modal-id="alert-btn">Alert</button>
+        <button data-modal-id="confirm-btn">Confirm</button>
+        <button data-modal-id="prompt-btn">Prompt</button>
+      </div>
+
+      <div>
+        <button data-modal-id="modify-styling">Modify styling</button>
+        <button data-modal-id="custom-content">Custom Content</button>
+      </div>
+      
+      <div style="
+        margin-top: 20px;
+        padding: 8px;
+        border: 1px solid #ddd;
+        width: 600px;
+        height: 100px;
+        position: relative;"
+      >
+        <button data-modal-id="after-element">After Element</button>
+      </div>
     </div>
 
     <script src="../dist/modal-custom.min.js"></script>
-    <script src="index.js"></script>
-
+    <script type="module" src="index.js"></script>
   </body>
 </html>

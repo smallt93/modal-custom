@@ -112,6 +112,34 @@ Or use `class` to set your style by class
 
 ```
 
+### After element
+
+You have to set your id element in `data-modal-id`.
+
+``` html
+
+  <button data-modal-id="address-btn">Address</button>
+
+```
+
+``` javascript
+
+
+  modal.confirm({
+    triggerId: 'address-btn',
+    afterElement: true,
+    msg: 'Where are you?',
+    onOk: (val) => {
+      console.log(val)
+    },
+    onCancel: () => {
+      console.log('Im from nowhere')
+    }
+  });
+
+```
+
+
 ## Config / Option
 
 
@@ -133,6 +161,10 @@ cancelStyle | Styles of cancel button | string |  |
 buttonType | Modal includes several predefined button styles, can be set to `primary`, `danger`, `success`, `secondary`, `warning` | string | `primary` |
 render | Custom modal content render | () => `node` | - |
 footer | Custom footer content render | () => `node` | - |
+position | Define postion of modal, can be set to `top-left`, `top-left`, `top-center`, `top-right`, `center-left`, `center`, `center-right`, `bottom-left`, `bottom-center`, `bottom-right`, | string | `top-center` |
+isAccess | Allow the user from accessing the rest of the program's interface | boolean | `false` |
+triggerId | Your trigger element | string |  |
+afterElement | You can set position of DOM after your trigger element, you have to define your trigger element in `triggerId` | boolean | `false` |
 
 ## Questions
 For questions and support feel free to create an issue or write an email to
