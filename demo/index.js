@@ -2,14 +2,13 @@ import Modal from '../src/script.js';
 // const { Modal } = LineModal;
 
 // ALERT
-document.querySelector('[data-modal-id="alert-btn"]').addEventListener('click', () => {
+document.getElementById('alert-btn').addEventListener('click', () => {
   const modal = new Modal();
-
   modal.alert('Hello world');
 })
 
 // CONFIRM
-document.querySelector('[data-modal-id="confirm-btn"]').addEventListener('click', () => {
+document.getElementById('confirm-btn').addEventListener('click', () => {
   const modal = new Modal();
 
   modal.confirm({
@@ -24,7 +23,7 @@ document.querySelector('[data-modal-id="confirm-btn"]').addEventListener('click'
 })
 
 // PROMPT
-document.querySelector('[data-modal-id="prompt-btn"]').addEventListener('click', () => {
+document.getElementById('prompt-btn').addEventListener('click', () => {
   const modal = new Modal();
   
   modal.prompt({
@@ -40,7 +39,7 @@ document.querySelector('[data-modal-id="prompt-btn"]').addEventListener('click',
 })
 
 // Modify styling of modal
-document.querySelector('[data-modal-id="modify-styling"]').addEventListener('click', () => {
+document.getElementById('modify-styling').addEventListener('click', () => {
   const modal = new Modal();
   
   modal.prompt({
@@ -60,52 +59,23 @@ document.querySelector('[data-modal-id="modify-styling"]').addEventListener('cli
 })
 
 // Custom Content
-document.querySelector('[data-modal-id="custom-content"]').addEventListener('click', () => {
+document.getElementById('custom-render').addEventListener('click', () => {
   const modal = new Modal();
   
-  modal.prompt({
-    render: () => `
-      <div>
-        <h2>Login Form</h2>
-
-        <form onsubmit="return false;">
-          <div class="form-item">
-            <label>User name</label>
-            <input type="text" />
-          </div>
-
-          <div class="form-item">
-            <label>Password</label>
-            <input type="password" />
-          </div>
-
-          <button>Login</button>
-        </form>
-      </div>
-    `,
-    onOk: (val) => {
-      console.log(val);
+  modal.custom({
+    msg: 'Custom element',
+    classActive: 'my-modal',
+    onOk: () => {
+      console.log('callback onOk');
     },
     onCancel: () => {
-      console.log('Im from nowhere');
+      console.log('callback onCancel')
     },
   });
 })
 
-// Custom Content
-document.querySelector('[data-modal-id="after-element"]').addEventListener('click', () => {
+function onLogin() {
   const modal = new Modal();
-  
-  modal.prompt({
-    msg: 'The modal in your element',
-    triggerId: 'after-element',
-    position: 'top-right',
-    afterElement: true,
-    onOk: (val) => {
-      console.log(val);
-    },
-    onCancel: () => {
-      console.log('Im from nowhere');
-    },
-  });
-})
+
+  modal.close();
+}

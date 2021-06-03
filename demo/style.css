@@ -1,0 +1,61 @@
+body {
+  overflow: hidden;
+}
+
+h1, h2, h3, p {
+  margin: 0;
+}
+
+.demo-btn button {
+  color: #07b53b;
+  min-width: 150px;
+  height: 38px;
+  margin-right: 5px;
+  cursor: pointer;
+  font-family: 'Noto Sans JP', sans-serif;
+  background-color: #fff;
+  border: 1px solid #00000026;
+  border-radius: 5px;
+}
+
+.my-modal {
+  padding: 20px;
+  font-family: 'Noto Sans JP', sans-serif;
+  background-color: #fff;
+}
+
+.my-modal h2 {
+  text-align: center;
+}
+
+.my-modal form {
+  margin-top: 20px;
+}
+
+.my-modal .form-item{
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.my-modal label {
+  flex: 0 0 90px;
+}
+
+.my-modal input {
+  flex: 1;
+  height: 28px;
+  padding: 0 8px;
+}
+
+.my-modal button {
+  margin-top: 10px;
+  cursor: pointer;
+  float: right;
+  height: 36px;
+  width: 100%;
+  color: #fff;
+  background-color: #07b53b;
+  border: 1px solid #07b53b;
+  border-radius: 5px;
+}

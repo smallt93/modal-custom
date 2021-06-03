@@ -5,54 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modal Custom</title>
-    <style>
-      body {
-        overflow: hidden;
-      }
-      .demo-btn button {
-        color: #07b53b;
-        min-width: 150px;
-        height: 38px;
-        margin-right: 5px;
-        cursor: pointer;
-        font-family: 'Noto Sans JP', sans-serif;
-        background-color: #fff;
-        border: 1px solid #00000026;
-        border-radius: 5px;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="../src/style.css" />
   </head>
 
   <body>
     <div class="container">
       <div class="demo-btn" style="margin-bottom: 5px;">
-        <button data-modal-id="alert-btn">Alert</button>
-        <button data-modal-id="confirm-btn">Confirm</button>
-        <button data-modal-id="prompt-btn">Prompt</button>
-      </div>
-
-      <div class="demo-btn">
-        <button data-modal-id="modify-styling">Modify styling</button>
-        <button data-modal-id="custom-content">Custom Content</button>
+        <button id="alert-btn">Alert</button>
+        <button id="confirm-btn">Confirm</button>
+        <button id="prompt-btn">Prompt</button>
       </div>
       
-      <div
-        class="demo-btn" 
-        style="
-          margin-top: 20px;
-          padding: 8px;
-          border: 1px solid #ddd;
-          width: 600px;
-          height: 100px;
-          position: relative;
-        "
-      >
-        <button data-modal-id="after-element">After Element</button>
+      <div class="demo-btn" style="margin-bottom: 5px;">
+        <button id="modify-styling">Modify styling</button>
+      </div>
+      
+      <div class="demo-btn" style="margin-bottom: 5px;">
+        <button id="custom-render">Custom render</button>
+      </div>
+
+      <div data-element-id="my-modal" class="my-modal" style="max-width: 400px;">
+        <h2>Login Form</h2>
+
+        <form onsubmit="return false;">
+          <div class="form-item">
+            <label>Email</label>
+            <input type="email" />
+          </div>
+
+          <div class="form-item">
+            <label>Password</label>
+            <input type="password" />
+          </div>
+
+          <button data-submit-modal="submit-login">Login</button>
+        </form>
       </div>
     </div>
 
     <!-- <script src="../dist/modal-custom.min.js"></script> -->
-    <script type="module" src="index.js"></script>
+    <script defer type="module" src="index.js"></script>
   </body>
 </html>

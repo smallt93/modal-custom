@@ -112,33 +112,6 @@ Or use `class` to set your style by class
 
 ```
 
-### After element
-
-You have to set your id element in `data-modal-id`.
-
-``` html
-
-  <button data-modal-id="address-btn">Address</button>
-
-```
-
-``` javascript
-
-
-  modal.confirm({
-    triggerId: 'address-btn',
-    afterElement: true,
-    msg: 'Where are you?',
-    onOk: (val) => {
-      console.log(val)
-    },
-    onCancel: () => {
-      console.log('Im from nowhere')
-    }
-  });
-
-```
-
 
 ## Config / Option
 
@@ -151,21 +124,15 @@ key | description | type | mandatory|
 msg | Message | string | `"window.location.origin" says` |
 title | Title of modal | string |  |
 class | Class in html | string |  |
-styles | Styles of modal wrapper | string | |
+styles | Styles of modal wrapper | CSSProperties | |
 textOk | Text for the submit button | string | Ok |
-textCancel | Text for the cancel button | string | Cancel |
 textPlaceholder | Placeholder text (prompt) | string |  |
-onOk | Fires when a user has submited | (value: string) => string | - |
+onOk | Fires when a user has submited, just get value callback when use prompt default | ((prompt) value: string) => string | - |
 onCancel | Fires when a user has canceled | func | - |
-okStyle | Styles of submit button | string |  |
-cancelStyle | Styles of cancel button | string |  |
+okStyle | Styles of submit button | CSSProperties |  |
 buttonType | Modal includes several predefined button styles, can be set to `primary`, `danger`, `success`, `secondary`, `warning` | string | `primary` |
-render | Custom all render of modal | () => `node` | - |
-content | Custom content render of modal | () => `node` | - |
-footer | Custom footer render of modal | () => `node` | - |
+classActive | Define class of element you want to implement into modal | string | |
 position | Define postion of modal, can be set to `top-left`, `top-left`, `top-center`, `top-right`, `center-left`, `center`, `center-right`, `bottom-left`, `bottom-center`, `bottom-right`, | string | `top-center` |
-triggerId | Your trigger element | string |  |
-afterElement | You can set position of DOM after your trigger element, you have to define your trigger element in `triggerId` | boolean | `false` |
 
 ## Questions
 For questions and support feel free to create an issue or write an email to

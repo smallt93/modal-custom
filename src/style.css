@@ -42,6 +42,10 @@ modal p {
   margin-bottom: 8px;
 }
 
+modal [modal-open="active"] {
+  display: block;
+} 
+
 modal .modal-header {
   display: flex;
   align-items: center;
@@ -51,6 +55,7 @@ modal .modal-header {
 }
 
 modal .modal-content {
+  order: 1;
   padding: 16px;
 }
 
@@ -60,6 +65,7 @@ modal .modal-close-btn::before {
   content: 'x';
   cursor: pointer;
 }
+
 modal .modal-btn {
   min-width: 70px;
   line-height: 28px;
@@ -87,6 +93,8 @@ modal .modal-prompt-input {
 }
 
 modal.modal-dialog {
+  display: flex;
+  flex-direction: column;
   min-width: 400px;
   z-index: 999;
   background-color: #f7f7f7;
